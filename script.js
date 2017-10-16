@@ -1,6 +1,7 @@
 /**
  * Created by ak on 14/10/17.
  */
+var besttime=9999999999999999999999999999999999999;
 var start = new Date().getTime();
 colors = ["red","black","green","blue","yellow"];
 var color;
@@ -34,6 +35,10 @@ document.getElementById("shape").onclick = function(){
         var end = new Date().getTime();
         var tt = end-start;
         document.getElementById("timeTaken").innerHTML = (tt/1000)+" seconds";
+        if(tt/1000<besttime){
+            besttime=tt/1000;
+        }
+        document.getElementById("besttime").innerHTML = besttime+" seconds";
         destColor();
         changeAfterDelay();
     } else {
